@@ -1,0 +1,1283 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include <math.h>
+#include <stdlib.h>
+#include <iomanip>
+#include <fstream>
+
+#define M_PI 3.1415; 
+
+using namespace std;
+
+int main() {
+	ios::fmtflags f(cout.flags());
+	int input;
+
+
+	cin >> input;
+	double radius = input;
+	double volume = 0.75*radius*radius*radius*M_PI;
+	cout << volume << endl;
+
+
+	cout << "0" << endl;
+	cin >> input;
+	if (input == 1) {
+		cout << "10" << endl;
+		cin >> input;
+		if (input == 11) {
+			cout << "100" << endl;
+			cin >> input;
+			if (input == 101) {
+				cout << "You pass the test." << endl;
+			}
+		}
+	}
+
+
+	cin >> input;
+	double rounded = input;
+	cout << setprecision(0) << fixed << rounded << endl;
+	cout.flags(f);
+
+
+	cin >> input;
+	int scores = input;
+	double added = 0;
+	for (int i = 0; i < scores; i++) {
+		cin >> input;
+		added += input;
+	}
+	double average = added / scores;
+	cout << average << endl;
+
+
+	cin >> input;
+	int sec = input;
+	int hours = sec / 3600;
+	int minutes = (sec % 3600) / 60;
+	int seconds = (sec % 3600) % 60;
+	cout << hours << ":" << minutes << ":" << seconds << endl;
+
+
+	/*
+	#include <iomanip>
+	#include <cmath>
+
+	int main() {
+	const double PI = 3.14159;
+	double radius;
+	double height;
+
+	cout << "Enter the radius of the base of the cylinder: ";
+	cin >> radius;
+	cout << endl;
+
+	cout << "Enter the height of the cylinder: ";
+	cin >> height;
+	cout << endl;
+
+	cout << fixed << showpoint << setprecision(2);
+	cout << "Volume of the cylinder = " << PI * pow(radius, 2.0)*height << endl;
+	cout << "Surface area: " << 2 * PI * radius * height + 2 * PI * pow(radius, 2.0) << endl;
+
+	return 0;
+	}
+	*/
+
+
+	string lastName;
+	string firstName;
+	double salary;
+	double percent;
+	double updatedSalary;
+	ifstream inFile;
+	ofstream outFile;
+	inFile.open("Ch3_Ex6Data.txt");
+	outFile.open("Ch3_Ex6Output.dat");
+	for (int i = 0; i < 3; i++) {
+		inFile >> lastName >> firstName >> salary >> percent;
+		updatedSalary = salary * (1 + (percent / 100));
+		outFile << firstName << " " << lastName << " " << updatedSalary << endl;
+	}
+	inFile.close();
+	outFile.close();
+
+
+	cout << "This is a guessing game. Pick a number between 1 and 10. You can guess 3 times and will be told if your guesses are higher or lower than my number." << endl;
+	srand(time(NULL));
+	int random = rand() % 10 + 1;
+	int guess = 0;
+	for (int i = 0; (i < 3) && (guess != random); i++) {
+		cout << "Enter a guess here: ";
+		cin >> guess;
+		if (guess > random) {
+			cout << "Your guess is too high." << endl;
+		}
+		else if (guess < random) {
+			cout << "Your guess is too low." << endl;
+		}
+		else if (guess == random) {
+			cout << "Your guess is correct!" << endl;
+		}
+	}
+	cout << random << endl;
+
+
+	// Pardon the amazing code
+	// 6 Decisions / 43 Switch Statements
+	int play;
+	bool win = false;
+	cout << "This a number adventure! If you pick the correct 3 numbers in a row you win. You can only pick the numbers 1 to 6. You have a 1/216 chance of winning." << endl;
+	cout << "Enter how many times you want to play: ";
+	cin >> play;
+	for (int i = 0; (i < play) && (!win); i++) {
+		cout << "Pick a number: ";
+		cin >> input;
+		switch (input) {
+		case 1:
+			cout << "Pick a number: ";
+			cin >> input;
+			switch (input) {
+			case 1:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 2:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 3:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 4:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 5:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 6:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			default:
+				cout << "Input Error" << endl;
+				break;
+			}
+			break;
+		case 2:
+			cout << "Pick a number: ";
+			cin >> input;
+			switch (input) {
+			case 1:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 2:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 3:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 4:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 5:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 6:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			default:
+				cout << "Input Error" << endl;
+				break;
+			}
+			break;
+		case 3:
+			cout << "Pick a number: ";
+			cin >> input;
+			switch (input) {
+			case 1:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 2:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 3:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 4:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You won! Wow! How did you manage that!" << endl;
+					win = true;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 5:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 6:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			default:
+				cout << "Input Error" << endl;
+				break;
+			}
+			break;
+		case 4:
+			cout << "Pick a number: ";
+			cin >> input;
+			switch (input) {
+			case 1:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 2:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 3:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 4:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 5:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 6:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			default:
+				cout << "Input Error" << endl;
+				break;
+			}
+			break;
+		case 5:
+			cout << "Pick a number: ";
+			cin >> input;
+			switch (input) {
+			case 1:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 2:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 3:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 4:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 5:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 6:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			default:
+				cout << "Input Error" << endl;
+				break;
+			}
+			break;
+		case 6:
+			cout << "Pick a number: ";
+			cin >> input;
+			switch (input) {
+			case 1:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 2:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 3:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 4:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 5:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			case 6:
+				cout << "Pick a number: ";
+				cin >> input;
+				switch (input) {
+				case 1:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 2:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 3:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 4:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 5:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				case 6:
+					cout << "You chose wrong. Better luck next time!" << endl;
+					break;
+				default:
+					cout << "Input Error" << endl;
+					break;
+				}
+				break;
+			default:
+				cout << "Input Error" << endl;
+				break;
+			}
+			break;
+		default:
+			cout << "Input Error" << endl;
+			break;
+		}
+	}
+
+	string charToBool = "";
+	bool vehicle = 0;
+	bool driverStatus = 0;
+	int passengers = 0;
+	int adults = 0;
+	int seniors = 0;
+	int youths = 0;
+	bool tooTall = 0;
+	int length = 0;
+	int bikes = 0;
+	double vehicleCost = 0;
+	double cost = 0;
+
+	cout << "Welcome to Matthew’s Fare Calculator";
+
+	cout << "Are you driving a vehicle onto the ferry ? (y / n) : ";
+	cin >> charToBool;
+	if (charToBool == "y") {
+		vehicle = true;
+	} else if (charToBool == "n") {
+		vehicle = false;
+	}
+
+	if (vehicle) {
+		cout << "Is the driver a senior citizen (age 65+) or disabled ? (y / n) : ";
+		cin >> charToBool;
+		if (charToBool == "y") {
+			driverStatus = true;
+		} else if (charToBool == "n") {
+			driverStatus = false;
+		}
+
+		cout << "How many passengers in your vehicle ? (excluding the driver)";
+	}
+	
+	cout << "Adults (age 19 – 64) : ";
+	cin >> adults;
+	
+	cout << "Senior Citizens (65 or older), or disabled Persons : ";
+	cin >> seniors;
+	
+	cout << "Youth (age 5 - 18) : ";
+	cin >> youths;
+
+	if (vehicle) {
+		cout << "Is your vehicle over 7 feet, 6 inches in height ? (y / n) : ";
+		cin >> charToBool;
+		if (charToBool == "y") {
+			tooTall = true;
+		}
+		else if (charToBool == "n") {
+			tooTall = false;
+		}
+
+		cout << "How long is your vehicle in feet ? ";
+		cin >> length;
+	}
+	
+	cout << "How many people in your group are traveling with a bicycle ? ";
+	cin >> bikes;
+	
+	if (length == 0) {
+		vehicleCost = 0;
+	}
+	else if (length < 14) {
+		if (tooTall) {
+			if (driverStatus) {
+				vehicleCost = 65.35;
+			} else {
+				vehicleCost = 35.80;
+			}
+		} else {
+			if (driverStatus) {
+				vehicleCost = 29.55;
+			} else {
+				vehicleCost = 36.05;
+			}
+		}
+	} else if (length < 22) {
+		if (tooTall) {
+			if (driverStatus) {
+				vehicleCost = 83.25;
+			} else {
+				vehicleCost = 44.75;
+			}
+		} else {
+			if (driverStatus) {
+				vehicleCost = 38.50;
+			} else {
+				vehicleCost = 45.00;
+			}
+		}
+	} else if (length < 30) {
+		if (tooTall) {
+			vehicleCost = 138.95;
+		} else {
+			vehicleCost = 69.60;
+		}
+	} else if (length < 40) {
+		vehicleCost = 185.95;
+	} else if (length < 50) {
+		vehicleCost = 232.95;
+	}
+
+	cost = vehicleCost + (adults * 12.95) + (seniors * 6.45) + (youths * 6.45) + (bikes * 2.00);
+
+	cout << "Your total fare is $" << cost << " Matthew’s Fare Calculator" << endl;
+
+
+	cin >> input;
+	return 0;
+}

@@ -53,10 +53,10 @@ int main() {
 
 
 	getline(cin, input);
-	int time = atof(input.c_str());
-	int hours = time / 3600;
-	int minutes = (time % 3600) / 60;
-	int seconds = (time % 3600) % minutes;
+	int sec = atof(input.c_str());
+	int hours = seconds / 3600;
+	int minutes = (sec % 3600) / 60;
+	int seconds = (sec % 3600) % 60;
 	cout << hours << ":" << minutes << ":" << seconds << endl;
 
 
@@ -86,7 +86,21 @@ int main() {
 	*/
 
 
-
+	string lastName;
+	string firstName;
+	string salary;
+	string percent;
+	ifstream inFile;
+	ofstream outFile;
+	inFile.open("Ch3_Ex6Data");
+	outFile.open("Ch3_Ex6Output");
+	for (int i = 0; i < 3; i++) {
+		inFile >> lastName >> firstName >> salary >> percent;
+		int updatedSalary = atof(salary.c_str()) * (1 + atof(percent.c_str()));
+		outFile << firstName << lastName << updatedSalary << endl;
+	}
+	inFile.close();
+	outFile.close();
 
 
 	getline(cin, input);
